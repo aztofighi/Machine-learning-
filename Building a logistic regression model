@@ -1,0 +1,27 @@
+# Import LogisticRegression
+from sklearn.linear_model import LogisticRegression
+
+
+# Instantiate the model
+logreg = LogisticRegression() 
+
+# Fit the model
+logreg.fit(X_train,y_train)
+
+# Predict probabilities
+y_pred_probs = logreg.predict_proba(X_test)[:, 1]
+
+print(y_pred_probs[:10])
+### calculate performance metrics
+
+from sklearn.metrics import roc_auc_score
+# Calculate roc_auc_score
+print(roc_auc_score(y_test, y_pred_probs))
+
+
+# Calculate the confusion matrix
+print(confusion_matrix(y_test, y_pred))
+
+
+# Calculate the classification report
+print(classification_report(y_test, y_pred))
